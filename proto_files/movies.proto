@@ -1,0 +1,27 @@
+syntax="proto2";
+
+package movie;
+
+message Movie {
+
+    enum Role {
+        CHARACTER = 0;
+        SCREENPLAY = 1;
+        DIRECTOR = 2;
+      }
+
+    message Person {
+        required string name = 1;
+        required Role role = 2;
+    } 
+
+    required string name = 1;
+    required double releaseDate = 2;
+    optional string overview = 3;
+    repeated Person featuredCrew = 4; 
+
+}
+
+message MovieList {
+    repeated Movie movies = 1;
+}
